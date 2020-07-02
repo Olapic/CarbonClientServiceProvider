@@ -1,5 +1,5 @@
 {
-    "name": "xmarcos/carbon-client-service-provider",
+    "name": "olapic/carbon-client-service-provider",
     "description": "A Silex Service Provider for Carbon (Graphite's backend)",
     "type": "library",
     "license": "MIT",
@@ -18,7 +18,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/xmarcos/CarbonClientServiceProvider/issues"
+        "issues": "https://github.com/Olapic/CarbonClientServiceProvider/issues"
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "xmarcos\\Silex\\": "src/"
+            "Olapic\\Silex\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "xmarcos\\Silex\\": "tests/"
+            "Olapic\\Silex\\": "tests/"
         }
     }
 }

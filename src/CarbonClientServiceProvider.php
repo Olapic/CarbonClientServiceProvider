@@ -1,5 +1,5 @@
 <?php
-namespace xmarcos\Silex;
+namespace Olapic\Silex;
 
 use ErrorException;
 use xmarcos\Carbon\Client;

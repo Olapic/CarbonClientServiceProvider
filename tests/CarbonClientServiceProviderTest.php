@@ -1,5 +1,5 @@
 <?php
-namespace xmarcos\Silex;
+namespace Olapic\Silex;
 
 use ReflectionClass;
 use Silex\Application;
