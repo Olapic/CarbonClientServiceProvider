@@ -15,7 +15,7 @@ A [Silex](https://github.com/silexphp/Silex) Service Provider for the [Carbon (G
 ```json
 {
     "require": {
-        "xmarcos/carbon-client-service-provider": "dev-master"
+        "xmarcos/carbon-client-service-provider": "~2.0"
     }
 }
 ```

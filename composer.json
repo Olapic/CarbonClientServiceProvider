@@ -23,12 +23,12 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "silex/silex"           : "~1.1",
+        "silex/silex"           : "~2.0",
         "xmarcos/carbon-client" : "~0.2"
     },
     "require-dev": {
-        "phpunit/phpunit"     : "@stable",
-        "fabpot/php-cs-fixer" : "@stable"
+        "phpunit/phpunit"               : "@stable",
+        "friendsofphp/php-cs-fixer"     : "~2.0"
     },
     "autoload": {
         "psr-4": {
