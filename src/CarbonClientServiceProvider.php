@@ -2,10 +2,10 @@
 namespace Olapic\Silex;
 
 use ErrorException;
-use Silex\Application;
 use xmarcos\Carbon\Client;
 use InvalidArgumentException;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 class CarbonClientServiceProvider implements ServiceProviderInterface
 {
@@ -31,14 +31,14 @@ class CarbonClientServiceProvider implements ServiceProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $name       = $this->name;
         $key        = sprintf('%s.params', $name);
         $app[$key]  = isset($app[$key]) ? $app[$key] : [];
-        $app[$name] = $app->share(function (Application $app) use ($key) {
+        $app[$name] = function (Container $app) use ($key) {
             return $this->createClient($app[$key]);
-        });
+        };
     }
 
     private function createClient(array $params = [])
@@ -77,13 +77,5 @@ class CarbonClientServiceProvider implements ServiceProviderInterface
         }
 
         return $carbon;
-    }
-
-    /**
-     * {@inheritdoc}
-     * @codeCoverageIgnore
-     */
-    public function boot(Application $app)
-    {
     }
 }

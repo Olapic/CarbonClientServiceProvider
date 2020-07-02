@@ -7,7 +7,7 @@ A [Silex](https://github.com/silexphp/Silex) Service Provider for the [Carbon (G
 ```json
 {
     "require": {
-        "olapic/carbon-client-service-provider": "~1.0"
+        "olapic/carbon-client-service-provider": "~2.0"
     }
 }
 ```
