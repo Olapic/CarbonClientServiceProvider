@@ -1,0 +1,25 @@
+#!/bin/sh
+
+REPO_ROOT_DIR="$( cd "$( dirname "$0" )" && pwd )"/../..
+PHP_FILES_CHANGED=$(git diff --cached --name-status --diff-filter=ACMRTUXB |awk '{print $2}' | grep -E '\.php$')
+MSG_TPL="\e[32m%s\e[39m\n"
+
+if [[ -n $PHP_FILES_CHANGED ]]; then
+
+    printf "$MSG_TPL" "Running PHP Lint"
+    for file in $PHP_FILES_CHANGED
+    do
+        php -l "$file" || exit 1
+    done
+
+    printf "$MSG_TPL" "PHP Coding Standards Fixer"
+    for file in $PHP_FILES_CHANGED
+    do
+        "${REPO_ROOT_DIR}"/vendor/bin/php-cs-fixer fix "$file"
+        git add "$file";
+    done
+
+    printf "$MSG_TPL" "Running PHPUnit"
+    "${REPO_ROOT_DIR}"/tools/build/unit-test.sh
+
+fi
